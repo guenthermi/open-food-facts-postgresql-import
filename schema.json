@@ -1,0 +1,10 @@
+{
+	"ingredients": "(id serial primary key, name varchar)",
+	"countries": "(id serial primary key, name varchar)",
+	"brands": "(id serial primary key, name varchar)",
+	"categories": "(id serial primary key, name varchar)",
+	"products": "(id serial primary key, product_name varchar, creator varchar, category int, energy_100g float, sugars_100g float, salt_100g float, fat_100g float, proteins_100g float, carbohydrates_100g float, foreign key (category) references categories (id))",
+	"products_ingredients": "(id serial primary key, product_id int, ingredient_id int, foreign key (product_id) references products (id), foreign key (ingredient_id) references ingredients (id))",
+	"products_brands": "(id serial primary key, product_id int, brand_id int, foreign key (product_id) references products (id), foreign key (brand_id) references brands (id))",
+	"products_countries": "(id serial primary key, product_id int, country_id int, foreign key (product_id) references products (id), foreign key (country_id) references countries (id))"
+}
